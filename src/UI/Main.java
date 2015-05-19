@@ -1,4 +1,6 @@
-package Jeu;
+package UI;
+
+import Jeu.Monopoly;
 
 
 public class Main {
