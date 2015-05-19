@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="build">
+	<path id="build.classpath">
+		<pathelement location="classes"/>
+	</path>
+	<target name="init">
+		<mkdir dir="classes"/>
+	</target>
+	<target name="clean">
+		<delete dir="classes"/>
+	</target>
+	<target depends="init" name="build">
+		<javac srcdir="." destdir="classes" source="1.5" target="1.5" fork="yes">
+			<classpath refid="build.classpath"/>
+			<include name="Interface.java"/>
+			<include name="CouleurPropriete.java"/>
+			<include name="Groupe.java"/>
+			<include name="ProprieteAConstruire.java"/>
+			<include name="Gare.java"/>
+			<include name="CarreauPropriete.java"/>
+			<include name="Compagnie.java"/>
+			<include name="Joueur.java"/>
+			<include name="Monopoly.java"/>
+			<include name="CarreauTirage.java"/>
+			<include name="CarreauArgent.java"/>
+			<include name="CarreauMouvement.java"/>
+			<include name="CarreauAction.java"/>
+			<include name="Carreau.java"/>
+		</javac>
+	</target>
+</project>
