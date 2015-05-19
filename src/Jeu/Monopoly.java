@@ -19,6 +19,7 @@ public class Monopoly {
         
         public Monopoly(String dataFilename){
 		buildGamePlateau(dataFilename);
+                initGroupe();
 	}
 	
 	private void buildGamePlateau(String dataFilename)
@@ -53,19 +54,42 @@ public class Monopoly {
                                         carreaux.put(num,c);
 				}
 				else if(caseType.compareTo("G") == 0){
-					System.out.println("Gare :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
+                                        int num = Integer.parseInt(data.get(i)[1]);
+                                        String nomC = data.get(i)[2];
+                                        int prix = Integer.parseInt(data.get(i)[3]);
+                                        
+                                        Gare c = new Gare(num,nomC,this,prix);
+                                        carreaux.put(num,c);
 				}
 				else if(caseType.compareTo("C") == 0){
-					System.out.println("Compagnie :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
+                                        int num = Integer.parseInt(data.get(i)[1]);
+                                        String nomC = data.get(i)[2];
+                                        int prix = Integer.parseInt(data.get(i)[3]);
+                                        
+                                        Compagnie c = new Compagnie(num,nomC,this,prix);
+                                        carreaux.put(num,c);
 				}
 				else if(caseType.compareTo("CT") == 0){
-					System.out.println("Case Tirage :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
+                                        int num = Integer.parseInt(data.get(i)[1]);
+                                        String nomC = data.get(i)[2];
+                                        
+                                        CarreauTirage c = new CarreauTirage(num,nomC,this);
+                                        carreaux.put(num,c);
 				}
 				else if(caseType.compareTo("CA") == 0){
-					System.out.println("Case Argent :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
+                                        int num = Integer.parseInt(data.get(i)[1]);
+                                        String nomC = data.get(i)[2];
+                                        int montant = Integer.parseInt(data.get(i)[3]);
+                                        
+                                        CarreauArgent c = new CarreauArgent(num,nomC,this,montant);
+                                        carreaux.put(num,c);
 				}
 				else if(caseType.compareTo("CM") == 0){
-					System.out.println("Case Mouvement :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
+                                        int num = Integer.parseInt(data.get(i)[1]);
+                                        String nomC = data.get(i)[2];
+                                        
+                                        CarreauTirage c = new CarreauTirage(num,nomC,this);
+                                        carreaux.put(num,c);
 				}
 				else
 					System.err.println("[buildGamePleateau()] : Invalid Data type");
