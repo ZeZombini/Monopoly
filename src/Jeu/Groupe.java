@@ -8,11 +8,10 @@ public class Groupe {
 	private int prixAchatHotel;
 	private ArrayList<ProprieteAConstruire> proprietes = new ArrayList<ProprieteAConstruire>();
 
-    public Groupe(CouleurPropriete couleur, int prixAchatMaison, int prixAchatHotel, ArrayList<ProprieteAConstruire> proprietes) {
+    public Groupe(CouleurPropriete couleur, int prixAchatMaison, int prixAchatHotel) {
         this.couleur = couleur;
         this.prixAchatMaison = prixAchatMaison;
         this.prixAchatHotel = prixAchatHotel;
-        this.proprietes = proprietes;
     }
 
     public CouleurPropriete getCouleur() {

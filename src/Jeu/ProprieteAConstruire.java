@@ -9,8 +9,8 @@ public class ProprieteAConstruire extends CarreauPropriete {
 	private int nbHotel = 0;
 	private Groupe groupePropriete;
         
-        public ProprieteAConstruire(int numero, String nomCarreau, int prixAchat, ArrayList<Integer> loyerMaison, Groupe groupePropriete){
-            super(numero, nomCarreau, prixAchat);
+        public ProprieteAConstruire(int numero, String nomCarreau, Monopoly monopoly, int prixAchat, ArrayList<Integer> loyerMaison, Groupe groupePropriete){
+            super(numero, nomCarreau, monopoly, prixAchat);
             setLoyerMaison(loyerMaison);
             setGroupePropriete(groupePropriete);
         }
