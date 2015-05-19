@@ -21,7 +21,69 @@ public class Monopoly {
                 initGroupe();
 		buildGamePlateau(dataFilename);
 	}
+
+    public int getNbMaisons() {
+        return nbMaisons;
+    }
+    public void setNbMaisons(int nbMaisons) {
+        this.nbMaisons = nbMaisons;
+    }
+
+    public int getNbHotels() {
+        return nbHotels;
+    }
+    public void setNbHotels(int nbHotels) {
+        this.nbHotels = nbHotels;
+    }
+
+    public ArrayList<Joueur> getJoueurs() {
+        return joueurs;
+    }
+    public void setJoueurs(ArrayList<Joueur> joueurs) {
+        this.joueurs = joueurs;
+    }
+
+    public Interface getInter() {
+        return inter;
+    }
+    public void setInter(Interface inter) {
+        this.inter = inter;
+    }
+
+    public ArrayList<Groupe> getGroupes() {
+        return groupes;
+    }
+    public void setGroupes(ArrayList<Groupe> groupes) {
+        this.groupes = groupes;
+    }
+
+    public HashMap<Integer, Carreau> getCarreaux() {
+        return carreaux;
+    }
+    public void setCarreaux(HashMap<Integer, Carreau> carreaux) {
+        this.carreaux = carreaux;
+    }
 	
+    public Carreau getCarreau(int position){
+        return carreaux.get(position);
+    }
+        private void addJoueur (Joueur joueur){
+            joueurs.add(joueur);
+        }
+        
+        public void nouveauJoueur(String nomJoueur){
+            Joueur j = new Joueur(nomJoueur, getCarreau(1), this);
+            addJoueur(j);
+        }
+        
+        
+        
+        
+        
+        
+        
+        //////// Creation du plateau /////      
+        
 	private void buildGamePlateau(String dataFilename)
 	{
 		try{
@@ -146,4 +208,6 @@ public class Monopoly {
 		
 		return data;
 	}
+        
+        
 }
