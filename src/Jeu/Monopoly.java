@@ -41,7 +41,7 @@ public class Monopoly {
                                         int mais3 = Integer.parseInt(data.get(i)[8]);
                                         int mais4 = Integer.parseInt(data.get(i)[9]);
                                         int hotel = Integer.parseInt(data.get(i)[10]);
-                                        ArrayList<Integer> loyer;
+                                        ArrayList<Integer> loyer = new ArrayList<>();
                                         loyer.add(nu);
                                         loyer.add(mais1);
                                         loyer.add(mais2);
@@ -49,7 +49,7 @@ public class Monopoly {
                                         loyer.add(mais4);
                                         loyer.add(hotel);
                                         
-                                        ProprieteAConstruire c = new ProprieteAConstruire(num,nomC,this,grp,prix,);
+                                        ProprieteAConstruire c = new ProprieteAConstruire(num,nomC,this,prix,loyer,grp);
                                         carreaux.put(num,c);
 				}
 				else if(caseType.compareTo("G") == 0){
@@ -81,14 +81,14 @@ public class Monopoly {
 	}
         
         private void initGroupe(){
-            Groupe bleuFonce = new groupe(CouleurPropriete.bleuFonce, 200, 200);
-            Groupe orange    = new groupe(CouleurPropriete.orange, 100, 100);
-            Groupe mauve     = new groupe(CouleurPropriete.mauve, 50, 50);
-            Groupe violet    = new groupe(CouleurPropriete.violet, 100, 100);
-            Groupe bleuCiel  = new groupe(CouleurPropriete.bleuCiel, 50, 50);
-            Groupe jaune     = new groupe(CouleurPropriete.jaune, 150, 150);
-            Groupe vert      = new groupe(CouleurPropriete.vert, 200, 200);
-            Groupe rouge     = new groupe(CouleurPropriete.rouge, 150, 150);
+            Groupe bleuFonce = new Groupe(CouleurPropriete.bleuFonce, 200, 200);
+            Groupe orange    = new Groupe(CouleurPropriete.orange, 100, 100);
+            Groupe mauve     = new Groupe(CouleurPropriete.mauve, 50, 50);
+            Groupe violet    = new Groupe(CouleurPropriete.violet, 100, 100);
+            Groupe bleuCiel  = new Groupe(CouleurPropriete.bleuCiel, 50, 50);
+            Groupe jaune     = new Groupe(CouleurPropriete.jaune, 150, 150);
+            Groupe vert      = new Groupe(CouleurPropriete.vert, 200, 200);
+            Groupe rouge     = new Groupe(CouleurPropriete.rouge, 150, 150);
             
             groupes.add(bleuFonce);
             groupes.add(orange);
@@ -106,8 +106,7 @@ public class Monopoly {
                   return grp;
                 }
             }
-
-
+            return null;
         }
 	
 	private ArrayList<String[]> readDataFile(String filename, String token) throws FileNotFoundException, IOException
