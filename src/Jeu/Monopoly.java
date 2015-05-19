@@ -18,8 +18,8 @@ public class Monopoly {
         
         
         public Monopoly(String dataFilename){
-		buildGamePlateau(dataFilename);
                 initGroupe();
+		buildGamePlateau(dataFilename);
 	}
 	
 	private void buildGamePlateau(String dataFilename)
