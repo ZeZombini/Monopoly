@@ -13,6 +13,7 @@ public class Monopoly {
 	private int nbHotels = 12;
 	private ArrayList<Joueur> joueurs = new ArrayList<Joueur>();
 	public  Interface inter;
+        private ArrayList<Groupe> groupes = new ArrayList();
         private HashMap<Integer, Carreau> carreaux;
         
         
@@ -24,16 +25,31 @@ public class Monopoly {
 	{
 		try{
 			ArrayList<String[]> data = readDataFile(dataFilename, ",");
-                        
 			
 			//TODO: create cases instead of displaying
 			for(int i=0; i<data.size(); ++i){
 				String caseType = data.get(i)[0];
 				if(caseType.compareTo("P") == 0){
+                                    // Recupération des différentes variables
                                         int num = Integer.parseInt(data.get(i)[1]);
                                         String nomC = data.get(i)[2];
+                                        Groupe grp = getGroupe(data.get(i)[3]);
+                                        int prix = Integer.parseInt(data.get(i)[4]);
+                                        int nu = Integer.parseInt(data.get(i)[5]);
+                                        int mais1 = Integer.parseInt(data.get(i)[6]);
+                                        int mais2 = Integer.parseInt(data.get(i)[7]);
+                                        int mais3 = Integer.parseInt(data.get(i)[8]);
+                                        int mais4 = Integer.parseInt(data.get(i)[9]);
+                                        int hotel = Integer.parseInt(data.get(i)[10]);
+                                        ArrayList<Integer> loyer;
+                                        loyer.add(nu);
+                                        loyer.add(mais1);
+                                        loyer.add(mais2);
+                                        loyer.add(mais3);
+                                        loyer.add(mais4);
+                                        loyer.add(hotel);
                                         
-                                        ProprieteAConstruire c = new ProprieteAConstruire(num,nomC,);
+                                        ProprieteAConstruire c = new ProprieteAConstruire(num,nomC,this,grp,prix,);
                                         carreaux.put(num,c);
 				}
 				else if(caseType.compareTo("G") == 0){
@@ -64,27 +80,34 @@ public class Monopoly {
 		}
 	}
         
-        private int getPrixMaisons(String couleur){
-            switch (couleur){
-              case "bleuFonce":
-                return 200;
-              case "orange":
-                return 100;
-              case "mauve":
-                return 50;
-              case "violet":
-                return 100;
-              case "bleuCiel":
-                return 50;
-              case "jaune":
-                return 150;
-              case "vert":
-                return 200;
-              case "rouge":
-                return 150;
-              default:
-                return 0;             
+        private void initGroupe(){
+            Groupe bleuFonce = new groupe(CouleurPropriete.bleuFonce, 200, 200);
+            Groupe orange    = new groupe(CouleurPropriete.orange, 100, 100);
+            Groupe mauve     = new groupe(CouleurPropriete.mauve, 50, 50);
+            Groupe violet    = new groupe(CouleurPropriete.violet, 100, 100);
+            Groupe bleuCiel  = new groupe(CouleurPropriete.bleuCiel, 50, 50);
+            Groupe jaune     = new groupe(CouleurPropriete.jaune, 150, 150);
+            Groupe vert      = new groupe(CouleurPropriete.vert, 200, 200);
+            Groupe rouge     = new groupe(CouleurPropriete.rouge, 150, 150);
+            
+            groupes.add(bleuFonce);
+            groupes.add(orange);
+            groupes.add(mauve);
+            groupes.add(violet);
+            groupes.add(bleuCiel);
+            groupes.add(jaune);
+            groupes.add(vert);
+            groupes.add(rouge);
+        }
+        
+        private Groupe getGroupe(String couleur){
+            for (Groupe grp : groupes){
+                if (grp.getCouleur().toString() == couleur){
+                  return grp;
+                }
             }
+
+
         }
 	
 	private ArrayList<String[]> readDataFile(String filename, String token) throws FileNotFoundException, IOException
