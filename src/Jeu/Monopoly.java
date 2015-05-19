@@ -6,13 +6,14 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Monopoly {
-	private int _nbMaisons = 32;
-	private int _nbHotels = 12;
-	private Carreau _carreaux;
-	private ArrayList<Joueur> _joueurs = new ArrayList<Joueur>();
-	public Interface _interface_3;
+	private int nbMaisons = 32;
+	private int nbHotels = 12;
+	private ArrayList<Joueur> joueurs = new ArrayList<Joueur>();
+	public  Interface inter;
+        private HashMap<Integer, Carreau> carreaux;
         
         
         public Monopoly(String dataFilename){
@@ -23,13 +24,25 @@ public class Monopoly {
 	{
 		try{
 			ArrayList<String[]> data = readDataFile(dataFilename, ",");
+                        Groupe bleuFonce = new groupe(CouleurPropriete.bleuFonce, 200, 200);
+                        Groupe orange = new groupe(CouleurPropriete.orange, 100, 100);
+                        Groupe mauve = new groupe(CouleurPropriete.mauve, 50, 50);
+                        Groupe violet = new groupe(CouleurPropriete.violet, 100, 100);
+                        Groupe bleuCiel = new groupe(CouleurPropriete.bleuCiel, 50, 50);
+                        Groupe jaune = new groupe(CouleurPropriete.jaune, 150, 150);
+                        Groupe vert = new groupe(CouleurPropriete.vert, 200, 200);
+                        Groupe rouge = new groupe(CouleurPropriete.rouge, 150, 150);
+                        
 			
 			//TODO: create cases instead of displaying
 			for(int i=0; i<data.size(); ++i){
 				String caseType = data.get(i)[0];
 				if(caseType.compareTo("P") == 0){
-					System.out.println("Propriété :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
+                                        int num = Integer.parseInt(data.get(i)[1]);
+                                        String nomC = data.get(i)[2];
                                         
+                                        ProprieteAConstruire c = new ProprieteAConstruire(num,nomC,);
+                                        carreaux.put(num,c);
 				}
 				else if(caseType.compareTo("G") == 0){
 					System.out.println("Gare :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
@@ -58,6 +71,29 @@ public class Monopoly {
 			System.err.println("[buildGamePlateau()] : Error while reading file!");
 		}
 	}
+        
+        private int getPrixMaisons(String couleur){
+            switch (couleur){
+              case "bleuFonce":
+                return 200;
+              case "orange":
+                return 100;
+              case "mauve":
+                return 50;
+              case "violet":
+                return 100;
+              case "bleuCiel":
+                return 50;
+              case "jaune":
+                return 150;
+              case "vert":
+                return 200;
+              case "rouge":
+                return 150;
+              default:
+                return 0;             
+            }
+        }
 	
 	private ArrayList<String[]> readDataFile(String filename, String token) throws FileNotFoundException, IOException
 	{
