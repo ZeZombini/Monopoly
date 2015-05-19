@@ -24,14 +24,6 @@ public class Monopoly {
 	{
 		try{
 			ArrayList<String[]> data = readDataFile(dataFilename, ",");
-                        Groupe bleuFonce = new groupe(CouleurPropriete.bleuFonce, 200, 200);
-                        Groupe orange = new groupe(CouleurPropriete.orange, 100, 100);
-                        Groupe mauve = new groupe(CouleurPropriete.mauve, 50, 50);
-                        Groupe violet = new groupe(CouleurPropriete.violet, 100, 100);
-                        Groupe bleuCiel = new groupe(CouleurPropriete.bleuCiel, 50, 50);
-                        Groupe jaune = new groupe(CouleurPropriete.jaune, 150, 150);
-                        Groupe vert = new groupe(CouleurPropriete.vert, 200, 200);
-                        Groupe rouge = new groupe(CouleurPropriete.rouge, 150, 150);
                         
 			
 			//TODO: create cases instead of displaying
