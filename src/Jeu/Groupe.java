@@ -3,8 +3,49 @@ package Jeu;
 import java.util.ArrayList;
 
 public class Groupe {
-	private CouleurPropriete _couleur;
-	private int _prixAchatMaison;
-	private int _prixAchatHotel;
-	private ArrayList<ProprieteAConstruire> _proprietes = new ArrayList<ProprieteAConstruire>();
+	private CouleurPropriete couleur;
+	private int prixAchatMaison;
+	private int prixAchatHotel;
+	private ArrayList<ProprieteAConstruire> proprietes = new ArrayList<ProprieteAConstruire>();
+
+    public Groupe(CouleurPropriete couleur, int prixAchatMaison, int prixAchatHotel, ArrayList<ProprieteAConstruire> proprietes) {
+        this.couleur = couleur;
+        this.prixAchatMaison = prixAchatMaison;
+        this.prixAchatHotel = prixAchatHotel;
+        this.proprietes = proprietes;
+    }
+
+    public CouleurPropriete getCouleur() {
+        return couleur;
+    }
+
+    public void setCouleur(CouleurPropriete couleur) {
+        this.couleur = couleur;
+    }
+
+    public int getPrixAchatMaison() {
+        return prixAchatMaison;
+    }
+
+    public void setPrixAchatMaison(int prixAchatMaison) {
+        this.prixAchatMaison = prixAchatMaison;
+    }
+
+    public int getPrixAchatHotel() {
+        return prixAchatHotel;
+    }
+
+    public void setPrixAchatHotel(int prixAchatHotel) {
+        this.prixAchatHotel = prixAchatHotel;
+    }
+
+    public ArrayList<ProprieteAConstruire> getProprietes() {
+        return proprietes;
+    }
+
+    public void setProprietes(ArrayList<ProprieteAConstruire> proprietes) {
+        this.proprietes = proprietes;
+    }
+        
+        
 }
