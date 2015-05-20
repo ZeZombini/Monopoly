@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 public class Monopoly {
 	private int nbMaisons = 32;
@@ -21,6 +22,14 @@ public class Monopoly {
                 initGroupe();
 		buildGamePlateau(dataFilename);
 	}
+        
+    public int lancerDes() {
+        Random jet = new Random();
+        int valde = jet.nextInt(5)+1;
+        
+        return valde;
+    }
+        
 
     public int getNbMaisons() {
         return nbMaisons;
