@@ -10,13 +10,45 @@ public class Joueur {
 	private ArrayList<Gare> gares = new ArrayList<Gare>();
 	private Carreau positionCourante;
 	private ArrayList<ProprieteAConstruire> proprietesAConstruire = new ArrayList<ProprieteAConstruire>();
+        
+        private boolean doubleDe;
+        private int nbDouble;
 
         public Joueur(String nomJoueur,Carreau positionCourante, Monopoly monopoly) {
             setNomJoueur(nomJoueur);
             setPositionCourante(positionCourante);
             setMonopoly(monopoly);
         }
+        
+        
+        public void avancer(int nbcase) {
+            if (getPositionCourante().getNumero()+nbcase > 40) {
+                this.setPositionCourante(monopoly.getCarreau(getPositionCourante().getNumero() + nbcase - 40));
+                this.setCash(getCash()+ 200);
+            } else {
+                this.setPositionCourante(monopoly.getCarreau(getPositionCourante().getNumero() + nbcase));
+            }
+        }
 
+    public boolean getDoubleDe() {
+        return doubleDe;
+    }
+
+    public void setDoubleDe(boolean doubleDe) {
+        this.doubleDe = doubleDe;
+    }
+
+    public int getNbDouble() {
+        return nbDouble;
+    }
+
+    public void setNbDouble(int nbDouble) {
+        this.nbDouble = nbDouble;
+    }
+
+        
+        
+        
         public String getNomJoueur() {
             return nomJoueur;
         }
