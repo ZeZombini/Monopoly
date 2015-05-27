@@ -53,8 +53,8 @@ public class Joueur {
     public void actionDouble(boolean doubleDe){
         if(doubleDe){
             incrNbDouble();
-            setDoubleDe(doubleDe);
         }
+        setDoubleDe(doubleDe);
     }
         
         
