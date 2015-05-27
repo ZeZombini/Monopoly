@@ -37,7 +37,7 @@ public class Interface {
         // met un lancé de dé pour chaque joueur pour savoir qui commence
         
         for(int i=0; i<nbrJoueur; i++){ 
-            nbrj[i] = monopoly.lancerDes();
+            nbrj[i] = monopoly.lancerDe();
         }
         
         for(int i=0; i<nbrJoueur; i++){

@@ -23,11 +23,20 @@ public class Monopoly {
 		buildGamePlateau(dataFilename);
 	}
         
-    public int lancerDes() {
+    public int lancerDe() {
         Random jet = new Random();
         int valde = jet.nextInt(5)+1;
         
         return valde;
+    }
+    
+    public int lancerDes(){
+        int sommeDes;
+        int valTemp;
+        sommeDes = lancerDe();
+        valTemp = lancerDe();
+        getJoueur().actionDouble(sommeDes == valTemp);
+        return (sommeDes += valTemp);
     }
         
 

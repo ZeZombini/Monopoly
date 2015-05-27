@@ -24,7 +24,7 @@ public class Joueur {
         public void avancer(int nbcase) {
             if (getPositionCourante().getNumero()+nbcase > 40) {
                 this.setPositionCourante(monopoly.getCarreau(getPositionCourante().getNumero() + nbcase - 40));
-                this.setCash(getCash()+ 200);
+                this.addCash(200);
             } else {
                 this.setPositionCourante(monopoly.getCarreau(getPositionCourante().getNumero() + nbcase));
             }
@@ -45,8 +45,17 @@ public class Joueur {
     public void setNbDouble(int nbDouble) {
         this.nbDouble = nbDouble;
     }
+    
+    public void incrNbDouble(){
+        this.nbDouble += 1;
+    }
 
-        
+    public void actionDouble(boolean doubleDe){
+        if(doubleDe){
+            incrNbDouble();
+            setDoubleDe(doubleDe);
+        }
+    }
         
         
         public String getNomJoueur() {
@@ -61,6 +70,9 @@ public class Joueur {
         }
         public void setCash(int cash) {
             this.cash = cash;
+        }
+        public void addCash(int cash){
+            this.cash += cash;
         }
 
         public Monopoly getMonopoly() {
