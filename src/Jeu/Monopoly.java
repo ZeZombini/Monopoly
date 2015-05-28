@@ -16,8 +16,9 @@ public class Monopoly {
 	public  Interface inter;
         private ArrayList<Groupe> groupes = new ArrayList();
         private HashMap<Integer, Carreau> carreaux;
-        
-        
+        private int numJoueur;
+
+
         public Monopoly(String dataFilename){
                 initGroupe();
 		buildGamePlateau(dataFilename);
@@ -35,10 +36,16 @@ public class Monopoly {
         int valTemp;
         sommeDes = lancerDe();
         valTemp = lancerDe();
-        getJoueur().actionDouble(sommeDes == valTemp);
+        getCurrentPlayer().actionDouble(sommeDes == valTemp);
         return (sommeDes += valTemp);
     }
         
+    public Joueur getCurrentPlayer() {
+        return joueurs.get(numJoueur-1);
+    }
+    public void setCurrentPlayer(Joueur joueur) {
+        numJoueur = (joueurs.indexOf(joueur))+1;
+    }
 
     public int getNbMaisons() {
         return nbMaisons;

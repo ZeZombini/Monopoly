@@ -50,6 +50,7 @@ public class Interface {
                 }
             }
             nbrj[jmax] = 0; // met la valeur du lancé du joueur selectionné à 0
+            System.out.println(nomj[jmax]);
             monopoly.nouveauJoueur(nomj[jmax]); // crée un joueur avec son nom
         
         }
